@@ -37,10 +37,12 @@ public class Learn {
     private String response(int numRes) {
         ArrayList<Integer> responses = new ArrayList<>();
         Random random = new Random();
-        int num, index;
+        int num, index, rand, numRes1 = numRes;
 
         for (int i = 0; i < 4; i++) {
-            num = random.nextInt(numRes);
+            rand = random.nextInt(20);
+            numRes1+=rand;
+            num = random.nextInt(numRes1);
             responses.add(num);
         }
         index = random.nextInt(4);
