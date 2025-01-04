@@ -5,6 +5,10 @@ import java.util.Scanner;
 
 public class Test {
     private Scanner scanner = new Scanner(System.in);
+    private int true_ = 0, false_ = 0,
+            numTest, count = 0, numMultiplier, min = 2, max = 9,
+            numAnswer, numRes;
+    private Random random = new Random();
 
     public Test() {
         String choice;
@@ -34,9 +38,7 @@ public class Test {
     }
 
     private void testUserNum() {
-        int numTest, count = 0, numMultiplier, min = 2, max = 9,
-                numAnswer, numRes;
-        Random random = new Random();
+
         System.out.print("Тест умножения на: ");
         numTest = scanner.nextInt();
 
@@ -49,27 +51,31 @@ public class Test {
 
             if (numAnswer == numRes) {
                 count++;
-                System.out.println("ответ правильный!");
+                true_++;
+                System.out.println("ответ правильный!\n" +
+                        "Правильных ответов: " + true_ +
+                        "\nНе правильных ответов: " + false_);
             } else if (numAnswer == 1){
                 System.out.println("exit");
                 break;
             } else {
                 if (count <= 0) {
                     count = 0;
+                    false_++;
                 } else {
                     count--;
+                    false_++;
                 }
 
-                System.out.println("Ответ не правильный! Правильный ответ был: " + numRes);
+                System.out.println("Ответ не правильный! Правильный ответ был: " + numRes +
+                        "\nНе правильных ответов: " + false_ +
+                        "\nПравильных ответов: " + true_);
             }
 
         }
     }
 
     private void learnRandNum() {
-        int numTest, count = 0, numMultiplier, min = 2, max = 9,
-                numAnswer, numRes;
-        Random random = new Random();
 
         while (true) {
             numTest = random.nextInt(max - min + 1) + min;
@@ -81,17 +87,24 @@ public class Test {
 
             if (numAnswer == numRes) {
                 count++;
-                System.out.println("ответ правильный!");
+                true_++;
+                System.out.println("ответ правильный!\n" +
+                        "Правильных ответов: " + true_ +
+                        "\nНе правильных ответов: " + false_);
             } else if (numAnswer == 1){
                 System.out.println("exit");
                 break;
             } else {
                 if (count <= 0) {
                     count = 0;
+                    false_++;
                 } else {
                     count--;
+                    false_++;
                 }
-                System.out.println("Ответ не правильный! Правильный ответ был: " + numRes);
+                System.out.println("Ответ не правильный! Правильный ответ был: " + numRes +
+                        "\nНе правильных ответов: " + false_ +
+                        "\nПравильных ответов: " + true_);
             }
         }
     }

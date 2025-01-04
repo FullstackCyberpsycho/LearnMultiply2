@@ -6,9 +6,12 @@ import java.util.Scanner;
 
 public class Learn {
     private Scanner scanner = new Scanner(System.in);
+    private int numLearn, count = 0, numMultiplier = 1, min = 2, max = 9,
+            numAnswer, numRes, true_ = 0, false_ = 0;
+    private Random random = new Random();
+    private String choice;
 
     public Learn() {
-        String choice;
         System.out.print("\t\t\tLEARN menu:\n" +
                 "'1' - начать изучения\n" +
                 "'2' - вернуться в главное меню!\n" +
@@ -36,12 +39,9 @@ public class Learn {
 
     private String response(int numRes, int numLearn) {
         ArrayList<Integer> responses = new ArrayList<>();
-        Random random = new Random();
-        int num, index;//, rand, numRes1 = numRes;
+        int num, index;
 
         for (int i = 0; i < 4; i++) {
-            //rand = random.nextInt(20);
-            //numRes1+=rand;
             num = random.nextInt(numLearn*10);
             responses.add(num);
         }
@@ -97,7 +97,7 @@ public class Learn {
                 "'3' - вернуться в главное меню!\n" +
                 "Ввод: ");
 
-        String choice = scanner.nextLine();
+        choice = scanner.nextLine();
 
         if (choice.equals("1")) {
             learnUserNumOrderMagnitude();
@@ -107,10 +107,7 @@ public class Learn {
     }
 
     private void learnUserNumOrderMagnitude() {
-        int numLearn, count = 0, numMultiplier = 1, min = 2, max = 9,
-                numAnswer, numRes, true_ = 0, false_ = 0;
-        String choice;
-        Random random = new Random();
+
         System.out.print("Изучения умножения на: ");
         numLearn = scanner.nextInt();
 
@@ -144,6 +141,7 @@ public class Learn {
             } else {
                 if (count <= 0) {
                     count = 0;
+                    false_++;
                 } else {
                     count--;
                     false_++;
@@ -158,9 +156,7 @@ public class Learn {
 
 
     private void learnUserNumRand() {
-        int numLearn, count = 0, numMultiplier, min = 2, max = 9,
-                numAnswer, numRes, true_ = 0, false_ = 0;
-        Random random = new Random();
+
         System.out.print("Изучения умножения на: ");
         numLearn = scanner.nextInt();
 
@@ -189,6 +185,7 @@ public class Learn {
             } else {
                 if (count <= 0) {
                     count = 0;
+                    false_++;
                 } else {
                     count--;
                     false_++;
@@ -202,9 +199,6 @@ public class Learn {
     }
 
     private void learnRandNum() {
-        int numLearn, count = 0, numMultiplier, min = 2, max = 9,
-                numAnswer, numRes, true_ = 0, false_ = 0;
-        Random random = new Random();
 
         System.out.println("ВНИМАНИЕ!\n" +
                 "Правила: вы должны выбрать правильный ответ из перечисленных\n" +
@@ -232,6 +226,7 @@ public class Learn {
             } else {
                 if (count <= 0) {
                     count = 0;
+                    false_++;
                 } else {
                     count--;
                     false_++;
