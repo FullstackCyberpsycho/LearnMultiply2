@@ -19,7 +19,7 @@ class LearningMultiplication {
     private void mainMenu() {
         String choice;
 
-        System.out.print("\t\t\tMAIN MENU:\n" +
+        System.out.print("\t\t\tMAIN MENU(beta):\n" +
                 "'1' - посмотреть таблицу\n" +
                 "'2' - учить\n" +
                 "'3' - тест\n" +
