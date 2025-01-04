@@ -60,7 +60,7 @@ public class Test {
                     count--;
                 }
 
-                System.out.println("Ответ не правильный!");
+                System.out.println("Ответ не правильный! Правильный ответ был: " + numRes);
             }
 
         }
@@ -86,8 +86,12 @@ public class Test {
                 System.out.println("exit");
                 break;
             } else {
-                count--;
-                System.out.println("Ответ не правильный!");
+                if (count <= 0) {
+                    count = 0;
+                } else {
+                    count--;
+                }
+                System.out.println("Ответ не правильный! Правильный ответ был: " + numRes);
             }
         }
     }

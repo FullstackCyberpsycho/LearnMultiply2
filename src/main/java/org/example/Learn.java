@@ -34,15 +34,15 @@ public class Learn {
         }
     }
 
-    private String response(int numRes) {
+    private String response(int numRes, int numLearn) {
         ArrayList<Integer> responses = new ArrayList<>();
         Random random = new Random();
-        int num, index, rand, numRes1 = numRes;
+        int num, index;//, rand, numRes1 = numRes;
 
         for (int i = 0; i < 4; i++) {
-            rand = random.nextInt(20);
-            numRes1+=rand;
-            num = random.nextInt(numRes1);
+            //rand = random.nextInt(20);
+            //numRes1+=rand;
+            num = random.nextInt(numLearn*10);
             responses.add(num);
         }
         index = random.nextInt(4);
@@ -67,7 +67,7 @@ public class Learn {
             numMultiplier = random.nextInt(max - min + 1) + min;
             numRes = numLearn * numMultiplier;
             System.out.print("\nсчет: " + count + "! Введите ваш ответ:\n" +
-                    response(numRes) + "\n" +
+                    response(numRes, numLearn) + "\n" +
                     numLearn + " * " + numMultiplier + " = ");
             numAnswer = scanner.nextInt();
 
@@ -104,7 +104,7 @@ public class Learn {
             numMultiplier = random.nextInt(max - min + 1) + min;
             numRes = numLearn * numMultiplier;
             System.out.print("\nсчет: " + count + "! Введите ваш ответ:\n" +
-                    response(numRes) + "\n" +
+                    response(numRes, numLearn) + "\n" +
                     numLearn + " * " + numMultiplier + " = ");
             numAnswer = scanner.nextInt();
 
@@ -115,8 +115,12 @@ public class Learn {
                 System.out.println("exit");
                 break;
             } else {
-                count--;
-                System.out.println("Ответ не правильный!");
+                if (count <= 0) {
+                    count = 0;
+                } else {
+                    count--;
+                }
+                System.out.println("Ответ не правильный! Правильный ответ был: " + numRes);
             }
 
         }
