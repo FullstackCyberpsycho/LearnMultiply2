@@ -54,7 +54,12 @@ public class Test {
                 System.out.println("exit");
                 break;
             } else {
-                count--;
+                if (count <= 0) {
+                    count = 0;
+                } else {
+                    count--;
+                }
+
                 System.out.println("Ответ не правильный!");
             }
 
