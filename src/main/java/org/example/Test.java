@@ -43,6 +43,8 @@ public class Test {
     private void testUserNum() {
 
         System.out.print("Тест умножения на: ");
+        numTest = scanner.nextInt();
+
         while (true) {
             do {
                 numMultiplier = random.nextInt(max - min + 1) + min;
