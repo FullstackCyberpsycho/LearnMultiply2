@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 class LearningMultiplication {
     private Scanner scanner = new Scanner(System.in);
-    boolean exit = true;
+    private boolean exit = true;
 
     private void table() {
         System.out.println("\t\t\tTABLE:");

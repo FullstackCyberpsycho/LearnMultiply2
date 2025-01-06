@@ -51,44 +51,6 @@ public class Learn {
         return responses.toString();
     }
 
-    /*private void learnUserNum() {
-        int numLearn, count = 0, numMultiplier, min = 2, max = 9,
-                numAnswer, numRes;
-        Random random = new Random();
-        System.out.print("Изучения умножения на: ");
-        numLearn = scanner.nextInt();
-
-        System.out.println("ВНИМАНИЕ!\n" +
-                "Правила: вы должны выбрать правильный ответ из перечисленных\n" +
-                "например: <5 x 6 = ?> выберите правильный ответ(35, 30, 45, 25)\n" +
-                "'1' - вернуться в главное меню!");
-
-        while (true) {
-            numMultiplier = random.nextInt(max - min + 1) + min;
-            numRes = numLearn * numMultiplier;
-            System.out.print("\nсчет: " + count + "! Введите ваш ответ:\n" +
-                    response(numRes, numLearn) + "\n" +
-                    numLearn + " * " + numMultiplier + " = ");
-            numAnswer = scanner.nextInt();
-
-            if (numAnswer == numRes) {
-                count++;
-                System.out.println("ответ правильный!");
-            } else if (numAnswer == 1){
-                System.out.println("exit");
-                break;
-            } else {
-                if (count <= 0) {
-                    count = 0;
-                } else {
-                    count--;
-                }
-
-                System.out.println("Ответ не правильный! Правильный ответ был: " + numRes);
-            }
-        }
-    }*/
-
     private void learnUserNum() {
 
         System.out.print("\tВыберите режим:\n" +

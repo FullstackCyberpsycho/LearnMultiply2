@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -9,6 +11,7 @@ public class Test {
             numTest, count = 0, numMultiplier, min = 2, max = 9,
             numAnswer, numRes;
     private Random random = new Random();
+    private List<Integer> usedMultipliers = new ArrayList<>();
 
     public Test() {
         String choice;
@@ -40,22 +43,25 @@ public class Test {
     private void testUserNum() {
 
         System.out.print("Тест умножения на: ");
-        numTest = scanner.nextInt();
-
         while (true) {
-            numMultiplier = random.nextInt(max - min + 1) + min;
-            numRes = numTest * numMultiplier;
-            System.out.print("\nсчет: " + count + "! Введите ваш ответ:\n" +
+            do {
+                numMultiplier = random.nextInt(max - min + 1) + min;
+            } while (usedMultipliers.contains(numMultiplier));
+
+            usedMultipliers.add(numMultiplier);
+
+            int numRes = numTest * numMultiplier;
+            System.out.print("\nСчёт: " + count + "! Введите ваш ответ:\n" +
                     numTest + " * " + numMultiplier + " = ");
-            numAnswer = scanner.nextInt();
+            int numAnswer = scanner.nextInt();
 
             if (numAnswer == numRes) {
                 count++;
                 true_++;
-                System.out.println("ответ правильный!\n" +
+                System.out.println("Ответ правильный!\n" +
                         "Правильных ответов: " + true_ +
-                        "\nНе правильных ответов: " + false_);
-            } else if (numAnswer == 1){
+                        "\nНеправильных ответов: " + false_);
+            } else if (numAnswer == 1) {
                 System.out.println("exit");
                 break;
             } else {
@@ -67,19 +73,24 @@ public class Test {
                     false_++;
                 }
 
-                System.out.println("Ответ не правильный! Правильный ответ был: " + numRes +
-                        "\nНе правильных ответов: " + false_ +
+                System.out.println("Ответ неверный! Правильный ответ был: " + numRes +
+                        "\nНеправильных ответов: " + false_ +
                         "\nПравильных ответов: " + true_);
             }
 
+            if (usedMultipliers.size() >= 8) {
+                //System.out.println("Все уникальные варианты исчерпаны. Перезапускаем...");
+                usedMultipliers.clear();
+            }
         }
     }
 
     private void learnRandNum() {
 
         while (true) {
-            numTest = random.nextInt(max - min + 1) + min;
             numMultiplier = random.nextInt(max - min + 1) + min;
+            numTest = random.nextInt(max - min + 1) + min;
+
             numRes = numTest * numMultiplier;
             System.out.print("\nсчет: " + count + "! Введите ваш ответ:\n" +
                     numTest + " * " + numMultiplier + " = ");
